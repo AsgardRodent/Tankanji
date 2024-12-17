@@ -1,12 +1,29 @@
-// import React from 'react'
+import React from 'react'
 // import { useState,useEffect } from 'react'
-// import Navbar  from '../navbar/navbar.tsx'
-// import Footer from '../footer/footer.tsx'
+import Navbar  from '../navbar/navbar.tsx'
+import Footer from '../footer/footer.tsx'
+import '../quiz/quiz.css'
 // import supabase from '../../supabase.js'
 
 
 
-// const Quiz = () => {
+const Quiz = () => {
+    return (
+        <div>
+            <Navbar />
+            <div className="Under_dev flex flex-col justify-between h-[700px] mx-auto my-auto w-[800px]">
+                <div className="flex-grow bg-cover bg-center bg-no-repeat" style={{backgroundImage: `url('../../images/bobby_2.png')`}}></div>
+                <div className="p-4 flex items-center justify-center">
+                    <p className="text-5xl text-white">Still in Development</p>
+                </div>
+            </div>
+            <Footer/>
+        </div>
+    )
+}
+
+export default Quiz
+
 // //     const [getQuestion, setQuestion] = useState(null)
 // //     const [getError, setError] = useState(null)
 // //     const [getOptions, setOptions] = useState(null)
@@ -118,8 +135,6 @@
 //     )
 // }
 
-// export default Quiz
-
 // // import '../quiz/quiz.css';
 
 // // const Quiz = () => {
@@ -129,5 +144,3 @@
 // //     </div>
 // //   );
 // // };
-
-<p>This is not Done yet !!!, Wait for more surprises !!!!!</p>

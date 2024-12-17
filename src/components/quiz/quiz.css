@@ -1,4 +1,4 @@
-body {
+/* body {
     width: 100vw;
     height: 100vh;
     background: linear-gradient(180deg, #ff008c 0%, rgb(211, 9, 225) 100%);
@@ -30,4 +30,11 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+  } */
+
+  .Under_dev {
+    background-image: url('../../images/bobby_2.png');
+    background-size: 450px 450px;
+    background-position: center;
+    background-repeat: no-repeat;
   }
