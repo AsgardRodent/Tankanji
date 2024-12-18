@@ -1,25 +1,25 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import N5 from './components/n5/n5.tsx'
 import N4 from './components/n4/n4.tsx'
 import N3 from './components/n3/n3.tsx'
 import Home from './components/home/home.tsx'
 import Quiz from './components/quiz/quiz.tsx'
-// import Landing from './components/landing.jsx'
-
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/N5" element={<N5 />} />
-        <Route path='/N4' element={<N4 />}/>
-        <Route path='/N3' element = {<N3 />} /> 
-        <Route path="/Quiz" element={<Quiz />}/>
+        <Route path="/N4" element={<N4 />} />
+        <Route path="/N3" element={<N3 />} />
+        <Route path="/Quiz" element={<Quiz />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
+
 
 export default App;
