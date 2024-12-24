@@ -4,8 +4,42 @@ import '../home/home.css'
 import Footer from '../footer/footer.tsx'
 import Navbar from '../navbar/navbar.tsx'
 import { ReactTyped } from "react-typed";
-import Loader  from '../../components/loader/loader.tsx';
 import { motion, AnimatePresence } from 'framer-motion'
+
+const doorLeft = {
+  width: '50%',
+  height: '100vh',
+  backgroundColor: "#ff0088",
+  borderRadius: 5,
+}
+
+const doorRight = {
+  width: '50%',
+  height: '100vh',
+  backgroundColor: "#ffffff",
+  borderRadius: 5,
+}
+
+const Loader = ({ isVisible }) => {
+  if (!isVisible) return null;
+
+  return (
+      <div style={{ display: 'flex', overflow: 'hidden', position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 9999 }}>
+      {/* Left Door Loader */}
+      <motion.div className='left_Door'
+          style={doorLeft}
+          animate={{ x : ['0' , '-100%'] }}
+          transition={{ duration: 2, ease:'easeIn', delay: 0.5}}
+      />
+      {/* Right Door Loader */}
+      <motion.div className='right_Door'
+          style={doorRight}
+          animate={{ x : ['0' , '100%'] }}
+          transition={{ duration: 2, ease: 'easeIn', delay: 0.5}}
+      />
+      </div>
+)
+}
 
 function Home() {
   const navigate = useNavigate();
@@ -18,7 +52,7 @@ function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 2500);
   
     return () => {
       clearTimeout(timer);
@@ -26,15 +60,15 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      {isLoading ? (
-      <Loader key="loader" isVisible={isLoading} />
-    ) : (
-      <motion.div key="content"             
+    <div className='home-container'>
+      <AnimatePresence>
+        {isLoading && <Loader key="loader" isVisible={isLoading} />}
+      </AnimatePresence>
+      <motion.div             
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       // exit={{ opacity: 0 }}
-      transition={{ duration: 1, delay: 1 }}>
+      transition={{ duration: 1, delay: 2 }}>
       <Navbar />
       <div className='text-[white] h-screen'>
         <div className='max-w-[800px] w-full h-full mx-auto text-center flex flex-col justify-center items-center'>
@@ -53,7 +87,6 @@ function Home() {
       </div>
       <Footer />
       </motion.div>
-      )}
     </div>
   )
 }

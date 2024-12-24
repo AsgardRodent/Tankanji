@@ -29,3 +29,25 @@ body {
     background-position: center;
     background-repeat: no-repeat;
   }
+
+.home-container {
+    background-image: url('../../images/Fuji_img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+  }
+
+.left_Door{
+    background-image: url('../../images/left.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.right_Door{
+    background-image: url('../../images/right.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

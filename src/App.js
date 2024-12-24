@@ -7,7 +7,7 @@ import Home from './components/home/home.tsx'
 import Quiz from './components/quiz/quiz_landing.tsx'
 // import RandomQuizGenerator from './components/random_quiz_generator/random_quiz_generator.tsx';
 import ScribbleQuiz from './components/scribble_quiz/scribble_quiz.tsx';
-import Loader from './components/loader/loader.tsx';
+// import Loader from './components/loader/loader.tsx';
 
 function App() {
   return (
