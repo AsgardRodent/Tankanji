@@ -1,19 +1,40 @@
 import { useNavigate } from 'react-router-dom';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../home/home.css'
 import Footer from '../footer/footer.tsx'
 import Navbar from '../navbar/navbar.tsx'
 import { ReactTyped } from "react-typed";
+import Loader  from '../../components/loader/loader.tsx';
+import { motion, AnimatePresence } from 'framer-motion'
 
 function Home() {
   const navigate = useNavigate();
+  const [isLoading, setLoading] = useState(true)
 
   const handleClick = () => {
     navigate('/n5');
-  };
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <div>
+      {isLoading ? (
+      <Loader key="loader" isVisible={isLoading} />
+    ) : (
+      <motion.div key="content"             
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      // exit={{ opacity: 0 }}
+      transition={{ duration: 1, delay: 1 }}>
       <Navbar />
       <div className='text-[white] h-screen'>
         <div className='max-w-[800px] w-full h-full mx-auto text-center flex flex-col justify-center items-center'>
@@ -31,6 +52,8 @@ function Home() {
         </div>
       </div>
       <Footer />
+      </motion.div>
+      )}
     </div>
   )
 }

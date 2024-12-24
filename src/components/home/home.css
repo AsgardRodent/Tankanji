@@ -22,3 +22,10 @@
         stroke: #000;
     }
 }
+
+body {
+    background-image: url('../../images/Fuji_img.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }

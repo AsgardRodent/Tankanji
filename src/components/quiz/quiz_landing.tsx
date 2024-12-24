@@ -2,7 +2,7 @@ import React from 'react'
 // import { useState,useEffect } from 'react'
 import Navbar  from '../navbar/navbar.tsx'
 import Footer from '../footer/footer.tsx'
-import '../quiz/quiz.css'
+import '../quiz/quiz_landing.css'
 // import supabase from '../../supabase.js'
 
 
