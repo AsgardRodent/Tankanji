@@ -9,15 +9,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 const doorLeft = {
   width: '50%',
   height: '100vh',
-  backgroundColor: "#ff0088",
-  borderRadius: 5,
 }
 
 const doorRight = {
   width: '50%',
   height: '100vh',
-  backgroundColor: "#ffffff",
-  borderRadius: 5,
 }
 
 const Loader = ({ isVisible }) => {
