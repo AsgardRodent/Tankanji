@@ -11,16 +11,50 @@ interface Kanji {
     meaning?: string;
     onyomi?: string;
     kunyomi?: string;
-  }
+}
 
 interface KanjiBoxesProps {
     tableName: string;
     onError?: (error: any) => void;
-  }
+}
+
+
+const KanjiBox = ({ item, setSelectedKanji }: { item: Kanji; setSelectedKanji: (kanji: Kanji) => void }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <motion.div
+      className="box relative w-full aspect-square"
+      whileHover={{ scale: 1.10 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={() => setSelectedKanji(item)}
+    >
+      <motion.h3 
+        className="absolute inset-0 flex items-center justify-center"
+        initial={false} 
+        animate={{ opacity: isHovered ? 0 : 1 }}
+      >
+        {item.kanji || 'No Title'}
+      </motion.h3>
+      <motion.h3
+        className='bg-[#18517a] text-white rounded-[20px] absolute inset-0 flex items-center justify-center'
+        initial={false} 
+        animate={{ opacity: isHovered ? 1 : 0 }}
+      >
+        {item.meaning || 'No Meaning'}
+      </motion.h3>
+      <div 
+        className="absolute inset-0 z-10"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      />
+    </motion.div>
+  );
+};
 
 function KanjiBoxes({ tableName, onError }: KanjiBoxesProps) {
-  const [data , setData] = useState<Kanji[]>([]);
-  const [selectedKanji , setSelectedKanji] = useState<Kanji | null>(null);
+  const [data, setData] = useState<Kanji[]>([]);
+  const [selectedKanji, setSelectedKanji] = useState<Kanji | null>(null);
 
   const navigateKanji = (direction: number) => {
     const currentIndex = data.findIndex(k => k.id === selectedKanji?.id);
@@ -53,23 +87,14 @@ function KanjiBoxes({ tableName, onError }: KanjiBoxesProps) {
   };
 
   return (
-    <div className="box-container text-black">
+    <div className="box-container text-black grid grid-cols-8 gap-3 p-2">
       {data && data.length > 0 ? (
         data.map((item) => (
-        <motion.div
-          key={item.id}
-          className="box"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => setSelectedKanji(item)}
-        >
-          <h3>{item.kanji || 'No Title'}</h3>
-          {/* <p>{item.meaning || 'No Description'}</p> */}
-        </motion.div>
-      ))
-    ) : (
-      <p>No Data Avaliable</p>
-    )}
+          <KanjiBox key={item.id} item={item} setSelectedKanji={setSelectedKanji} />
+        ))
+      ) : (
+        <p>No Data Available</p>
+      )}
   <AnimatePresence>
     {selectedKanji && (
       <motion.div

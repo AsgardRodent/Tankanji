@@ -8,11 +8,13 @@ import Quiz from './components/quiz/quiz_landing.tsx'
 // import RandomQuizGenerator from './components/random_quiz_generator/random_quiz_generator.tsx';
 import ScribbleQuiz from './components/scribble_quiz/scribble_quiz.tsx';
 // import Loader from './components/loader/loader.tsx';
+import Signin from './components/signin/signin.tsx';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/Signin' element={<Signin />} />
         <Route path="/" element={<Home />} />
         <Route path="/N5" element={<N5 />} />
         <Route path="/N4" element={<N4 />} />

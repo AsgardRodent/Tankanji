@@ -36,8 +36,9 @@ const N5 = () => {
       </div>
       <div className='text-white text-center bg-black'>
       {fetchError && (<p className='text-red-500'>{fetchError}</p>)}
-      <KanjiBoxes tableName="n5_database_kanji" 
-                  onError={(error) => setFetchError('Could Not Fetch Kanjis')}/>
+      <div className="max-w-4xl mx-auto">
+        <KanjiBoxes tableName="n5_database_kanji" onError={(error) => setFetchError('Could Not Fetch Kanjis')}/>
+      </div>
       </div>
       <Footer />
     </div>
