@@ -1,6 +1,6 @@
 .Animated-class {
     fill: transparent;
-    stroke: #000;
+    stroke: #fff;
     stroke-width: 0.1;
     stroke-dasharray: 70;
     stroke-dashoffset: 70;
@@ -17,21 +17,21 @@
         fill: transparent;
     }
     100% {
-        fill: #000;
+        fill: #fff;
         stroke-dashoffset: 0;
-        stroke: #000;
+        stroke: #fff;
     }
 }
 
 body {
-    background-image: url('../../images/Fuji_img.jpg');
+    background-image: url('../../images/Toji.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
 
 .home-container {
-    background-image: url('../../images/Fuji_img.jpg');
+    background-image: url('../../images/Toji.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
