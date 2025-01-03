@@ -9,13 +9,15 @@ import Quiz from './components/quiz/quiz_landing.tsx'
 import ScribbleQuiz from './components/scribble_quiz/scribble_quiz.tsx';
 // import Loader from './components/loader/loader.tsx';
 import Signin from './components/signin/signin.tsx';
+import SignUp from './components/signup/signup.tsx'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/Signin' element={<Signin />} />
-        <Route path="/" element={<Home />} />
+        <Route path='/Home' element={<Home />} />
+        <Route path='/SignUp' element={<SignUp />} />
+        <Route path="/" element={<Signin/>} />
         <Route path="/N5" element={<N5 />} />
         <Route path="/N4" element={<N4 />} />
         <Route path="/N3" element={<N3 />} />
