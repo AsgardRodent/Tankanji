@@ -10,6 +10,7 @@ import ScribbleQuiz from './components/scribble_quiz/scribble_quiz.tsx';
 // import Loader from './components/loader/loader.tsx';
 import Signin from './components/signin/signin.tsx';
 import SignUp from './components/signup/signup.tsx'
+import Parallax from './components/parallax/parallax.tsx';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/Quiz" element={<Quiz />} />
         <Route path="/S_Quiz" element={<ScribbleQuiz />} />
         <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path='/parallax' element={<Parallax />} />
       </Routes>
     </BrowserRouter>
   );

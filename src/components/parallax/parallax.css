@@ -1,0 +1,45 @@
+.parallax-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .mountain-bg {
+    background-image: url('../../images/bg/mountain.png');
+    z-index: 1;
+  }
+  
+  .left-river-bg {
+    background-image: url('../../images/bg/left_river.png');
+    z-index: 2;
+  }
+  
+  .right-river-bg {
+    background-image: url('../../images/bg/right_river.png');
+    z-index: 3;
+  }
+  
+  .gate-bg {
+    background-image: url('../../images/bg/gate.png');
+    z-index: 4;
+  }
+  
+
+  .heading-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 3;
+  }
