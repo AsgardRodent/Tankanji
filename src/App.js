@@ -8,7 +8,7 @@ import Quiz from './components/quiz/quiz_landing.tsx'
 // import RandomQuizGenerator from './components/random_quiz_generator/random_quiz_generator.tsx';
 import ScribbleQuiz from './components/scribble_quiz/scribble_quiz.tsx';
 // import Loader from './components/loader/loader.tsx';
-import Signin from './components/signin/signin_box.tsx';
+// import Signin from './components/signin/signin_box.tsx';
 import SignUp from './components/signup/signup.tsx'
 import Parallax from './components/parallax/parallax.tsx';
 
@@ -16,9 +16,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path='/Home' element={<Home />} /> */}
+        <Route path='/' element={<Home />} />
         <Route path='/SignUp' element={<SignUp />} />
-        <Route path="/" element={<Home/>} />
+        {/* <Route path="/" element={<Signin/>} /> */}
         <Route path="/N5" element={<N5 />} />
         <Route path="/N4" element={<N4 />} />
         <Route path="/N3" element={<N3 />} />
