@@ -23,13 +23,6 @@
     }
 }
 
-body {
-    background-image: url('../../images/Toji.jpeg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
 .home-container {
     background-image: url('../../images/Toji.jpeg');
     background-size: cover;
@@ -51,3 +44,8 @@ body {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+.backdrop-blur-sm {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }

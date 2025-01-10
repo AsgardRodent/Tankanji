@@ -20,7 +20,7 @@ const Navbar = () => {
     }
     
     const H = () => {
-      navigate('/')
+      navigate('/Home')
     }
 
     const N3 = () => {
@@ -31,7 +31,7 @@ const Navbar = () => {
       navigate('/quiz')
     }
   return (
-    <div className= 'text-white flex justify-between items-center h-12 mx-auto px-4 mt-3 max-w-[95%] bg-gray-200 bg-opacity-10 rounded-full border-2 border-black'>
+    <div className= 'text-white flex justify-between items-center h-12 mx-auto px-4 max-w-[95%] bg-gray-200 bg-opacity-10 rounded-full border-2 border-black'>
       <h1 className='w-full font-bold text-3xl text-black'>Tankanji</h1>
       <ul className='hidden md:flex text-white'>
         <li className='p-4 hover:text-black transition-all duration-700 ease-in-out' onClick={H}>Home</li>

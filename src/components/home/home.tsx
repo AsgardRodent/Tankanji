@@ -5,6 +5,7 @@ import Footer from '../footer/footer.tsx'
 import Navbar from '../navbar/navbar.tsx'
 import { ReactTyped } from "react-typed";
 import { motion, AnimatePresence } from 'framer-motion'
+import Signin from '../signin/signin_box.tsx';
 
 const doorLeft = {
   width: '50%',
@@ -16,57 +17,92 @@ const doorRight = {
   height: '100vh',
 }
 
-const Loader = ({ isVisible }) => {
+const Loader = ({ isVisible, startExit }) => {
   if (!isVisible) return null;
 
   return (
-      <div style={{ display: 'flex', overflow: 'hidden', position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 9999 }}>
-      {/* Left Door Loader */}
+    <div style={{ display: 'flex', overflow: 'hidden', position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 9999 }}>
       <motion.div className='left_Door'
-          style={doorLeft}
-          animate={{ x : ['0' , '-100%'] }}
-          transition={{ duration: 2, ease:'easeIn', delay: 0.5}}
+        style={doorLeft}
+        animate={{ x: startExit ? '-100%' : '0' }}
+        transition={{ duration: 2, ease: 'easeIn', delay: 0.5 }}
       />
-      {/* Right Door Loader */}
       <motion.div className='right_Door'
-          style={doorRight}
-          animate={{ x : ['0' , '100%'] }}
-          transition={{ duration: 2, ease: 'easeIn', delay: 0.5}}
+        style={doorRight}
+        animate={{ x: startExit ? '100%' : '0' }}
+        transition={{ duration: 2, ease: 'easeIn', delay: 0.5 }}
       />
-      </div>
-)
+    </div>
+  )
 }
+
+// const Re_Loader = ({ isVisible, startExit }) => {
+//   if (!isVisible) return null;
+
+//   return (
+//     <div style={{ display: 'flex', overflow: 'hidden', position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 9999 }}>
+//       <motion.div className='left_Door'
+//         style={doorLeft}
+//         animate={{ x: startExit ? '0' : '50%' }}
+//         transition={{ duration: 2, ease: 'easeIn', delay: 0.5 }}
+//       />
+//       <motion.div className='right_Door'
+//         style={doorRight}
+//         animate={{ x: startExit ? '-100%' : '50%' }}
+//         transition={{ duration: 2, ease: 'easeIn', delay: 0.5 }}
+//       />
+//     </div>
+//   )
+// }
 
 function Home() {
   const navigate = useNavigate();
   const [isLoading, setLoading] = useState(true)
+  const [showLoader, setShowLoader] = useState(true);
+  const [showContent, setShowContent] = useState(false);
+  const [startLoaderExit, setStartLoaderExit] = useState(false);
+  const [contentLoaded, setContentLoaded] = useState(false);
+
+  useEffect(() => {
+    // Simulate content loading
+    setTimeout(() => setContentLoaded(true), 1000);
+  }, []);
 
   const handleClick = () => {
     navigate('/n5');
   }
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2500);
-  
-    return () => {
-      clearTimeout(timer);
-    };
-  }, []);
+  const handleSigninSuccess = async () => {
+    setLoading(false);
+    setStartLoaderExit(true);
+    await new Promise(resolve => setTimeout(resolve, 3500));
+    setShowLoader(false);
+    setShowContent(true);
+  };
 
   return (
     <div className='home-container'>
-      <AnimatePresence>
-        {isLoading && <Loader key="loader" isVisible={isLoading} />}
+      <AnimatePresence mode="wait">
+        {showLoader && <Loader key="loader" isVisible={true} startExit={startLoaderExit} />}
+        {isLoading && (
+          <motion.div
+            key="signin"
+            className="fixed inset-0 z-[10000] bg-black/50 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Signin onSuccess={handleSigninSuccess} />
+          </motion.div>
+        )}
       </AnimatePresence>
-      <motion.div             
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      // exit={{ opacity: 0 }}
-      transition={{ duration: 1, delay: 2 }}>
-      <Navbar />
-      <div className='text-[white] h-screen'>
+      {contentLoaded && (
+        <motion.div             
+          initial={{ opacity: 0 }}
+          animate={{ opacity: showContent ? 1 : 0 }}
+          transition={{ duration: 1, delay: 0.5 }}>
+          <Navbar />
+          <div className='text-[white] h-screen'>
         <div className='max-w-[800px] w-full h-full mx-auto text-center flex flex-col justify-center items-center '>
           <div className='flex justify-center w-[90%] mb-4 -mt-[18%] p-2 pr-14'>
           <svg width="600" height="100" viewBox="0 0 58 15" fill="none" xmlns="http://www.w3.org/2000/svg" className='pl-4 mx-auto'>
@@ -83,6 +119,7 @@ function Home() {
       </div>
       <Footer />
       </motion.div>
+      )}
     </div>
   )
 }
