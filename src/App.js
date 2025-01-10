@@ -9,7 +9,7 @@ import Quiz from './components/quiz/quiz_landing.tsx'
 import ScribbleQuiz from './components/scribble_quiz/scribble_quiz.tsx';
 // import Loader from './components/loader/loader.tsx';
 // import Signin from './components/signin/signin_box.tsx';
-import SignUp from './components/signup/signup.tsx'
+// import SignUp from './components/signup/signup_box.tsx'
 import Parallax from './components/parallax/parallax.tsx';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/SignUp' element={<SignUp />} />
+        {/* <Route path='/SignUp' element={<SignUp />} /> */}
         {/* <Route path="/" element={<Signin/>} /> */}
         <Route path="/N5" element={<N5 />} />
         <Route path="/N4" element={<N4 />} />

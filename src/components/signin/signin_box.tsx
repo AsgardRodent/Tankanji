@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import supabase from '../../supabase'
 import '../signin/signin_box.css'
 import { motion } from 'framer-motion'
+import SignUp from '../../components/signup/signup_box.tsx'
 
 const Signin = ({onSuccess}) => {
-  const navigate = useNavigate()
+//   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [successMsg, setSuccessMsg] = useState('')
+  const [showSignUp, setShowSignUp] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -54,6 +56,10 @@ const Signin = ({onSuccess}) => {
     }
   }
   return (
+    <motion.div>
+    {showSignUp ? (
+      <SignUp />
+    ) : (
     <motion.div 
       className="fixed inset-0 flex items-center justify-center"
       initial={{ opacity: 0, scale: 0.95 }}
@@ -93,7 +99,7 @@ const Signin = ({onSuccess}) => {
             Sign In
           </button>
           <button 
-            onClick={() => navigate('/signup')}
+            onClick={() => setShowSignUp(true)}
             className="w-full px-4 py-2 bg-[#848484]/60 text-black hover:bg-[#848484] hover:text-white rounded-full transition duration-300 ease-in-out"
           >
             Register
@@ -106,6 +112,8 @@ const Signin = ({onSuccess}) => {
         </form>
         </div>
         </motion.div>
+            )}
+  </motion.div>
   )}
 
   
