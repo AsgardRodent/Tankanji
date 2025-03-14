@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './Components/home/home.tsx'
-import Levels from './Components/levels/levels.jsx';
+// import Levels from './Components/levels/levels.jsx';
 import N5 from './Components/levels/n5/n5.tsx'
 function App() {
   return (
