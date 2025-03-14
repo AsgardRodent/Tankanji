@@ -1,0 +1,38 @@
+.signin-container {
+    position: relative;
+    width: 10%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bg-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  form {
+    position: relative;
+    z-index: 1;
+    background-color: rgb(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .place-text::placeholder{
+    color :black;
+    opacity : 0.6;
+  }
+  
+  .kk-icon{
+    background-image: url('../../Images/logo.svg');
+    background-size: auto ;
+    background-position: center;
+    background-repeat: no-repeat;
+  }

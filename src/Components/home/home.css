@@ -1,0 +1,51 @@
+.Animated-class {
+    fill: transparent;
+    stroke: #fff;
+    stroke-width: 0.1;
+    stroke-dasharray: 70;
+    stroke-dashoffset: 70;
+    animation: textAnimation 5s ease-in forwards;
+}
+
+
+@keyframes textAnimation{
+    0% {
+        stroke-dashoffset: 70;
+    }
+    80%
+    {
+        fill: transparent;
+    }
+    100% {
+        fill: #fff;
+        stroke-dashoffset: 0;
+        stroke: #fff;
+    }
+}
+
+.home-container {
+    background-image: url('../../Images/Toji.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+  }
+
+.left_Door{
+    background-image: url('../../Images/New_door_left.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.right_Door{
+    background-image: url('../../Images/New_door_right.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.backdrop-blur-sm {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }

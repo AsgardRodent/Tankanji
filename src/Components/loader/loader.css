@@ -1,0 +1,13 @@
+.left_Door{
+    background-image: url('../../images/left.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.right_Door{
+    background-image: url('../../images/right.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

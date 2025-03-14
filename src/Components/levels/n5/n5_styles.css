@@ -1,0 +1,24 @@
+.Animated-class {
+    fill: transparent;
+    stroke: #EBDEBB;
+    stroke-width: 0.1;
+    stroke-dasharray: 70;
+    stroke-dashoffset: 70;
+    animation: textAnimation 5s ease-in forwards;
+}
+
+
+@keyframes textAnimation{
+    0% {
+        stroke-dashoffset: 70;
+    }
+    99%
+    {
+        fill: transparent;
+    }
+    100% {
+        fill: #EBDEBB;
+        stroke-dashoffset: 0;
+        stroke: #EBDEBB;
+    }
+}
