@@ -8,10 +8,11 @@ import Drop from '../../../Images/kanji_drop_down.svg'
 import "../n5/n5_styles.css"
 import QuestionBox from '../../../Images/questionbox.svg' 
 import Flower from '../../../Images/flower.svg'
+
 const N5 = () => {
   console.log(supabase)
 
-  const [fetchError, setFetchError] = useState<string | null>(null)
+  const [fetchError, setFetchError] = useState(null)
 
   return (
     <div>

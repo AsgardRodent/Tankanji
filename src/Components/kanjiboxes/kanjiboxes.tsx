@@ -4,6 +4,7 @@ import supabase from '../../supabase';
 import '../kanjiboxes/kanjiboxes.css'
 import {AiOutlineClose} from 'react-icons/ai';
 import { IoArrowForwardOutline } from "react-icons/io5";
+import { FaLock } from "react-icons/fa";
 
 interface Kanji {
     id: number;
@@ -11,6 +12,7 @@ interface Kanji {
     meaning?: string;
     onyomi?: string;
     kunyomi?: string;
+    status?: boolean
 }
 
 interface KanjiBoxesProps {
@@ -24,10 +26,10 @@ const KanjiBox = ({ item, setSelectedKanji }: { item: Kanji; setSelectedKanji: (
 
   return (
     <motion.div
-      className="box relative w-full aspect-square border-t-4 border-r-4 border-[#C8AA60]"
+      className={`box relative w-full aspect-square border-t-4 border-r-4 border-[#C8AA60] ${item.status ? 'box_blured locked' : ''}`}
       whileHover={{ scale: 1.10 }}
       whileTap={{ scale: 0.95 }}
-      onClick={() => setSelectedKanji(item)}
+      onClick={() => item.status ? '' : setSelectedKanji(item)}
     >
       <motion.h3 
         className="absolute inset-0 flex items-center justify-center flex-col gap-10"

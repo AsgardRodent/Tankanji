@@ -14,6 +14,26 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
   }
   
+  .box_blured {
+    filter: blur(3px); /* Apply blur effect */
+    opacity: 0.5; /* Optional: Reduce opacity for better effect */
+  }
+  
+  .locked {
+    position: relative; /* To position the lock icon absolutely */
+  }
+  
+  .locked::after {
+    content: "\1F510"; /* Unicode for a lock */
+    font-size: 24px; /* Adjust size of the lock icon */
+    font-family: Arial, sans-serif; /* Specify a font family */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #18517a;
+  }
+  
   .modal-overlay {
     position: fixed;
     top: 0;
